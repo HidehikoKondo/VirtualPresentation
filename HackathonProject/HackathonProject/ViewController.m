@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import <MEMELib/MEMELib.h>
+#import <WebKit/WebKit.h>
 @import MaBeeeSDK;
 
 @interface ViewController ()
@@ -23,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *memeSelectTableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UITextView *statusText;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIImageView *eyeImage;
 
 
 @property MEMERealTimeData *latestRealTimeData;
@@ -31,6 +34,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *faceImage;
 @property (weak, nonatomic) IBOutlet UIImageView *cheekImage;
+@property (weak, nonatomic) IBOutlet UIImageView *smileImage;
+@property (weak, nonatomic) IBOutlet UIImageView *angryImage;
+@property (weak, nonatomic) IBOutlet UIButton *connectButton;
 
 @end
 
@@ -41,6 +47,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+    //myURLに Appleのサイトを指定
+    NSURL *myURL = [NSURL URLWithString:@"https://www.udonko.net/cflt.pdf"];
+    //リクエストを作成
+    NSURLRequest *myRequest = [NSURLRequest requestWithURL:myURL];
+    //リクエストされた URLを読み込み
+    [self.webView loadRequest:myRequest];
+    
     
     //delegate
     //これを実行するとmemeAppAuthorizedが呼ばれる
@@ -55,8 +69,8 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 
 
-    UIImage *image1 = [UIImage imageNamed:@"mouseopen"];
-    UIImage *image2 = [UIImage imageNamed:@"mouseclose"];
+    UIImage *image1 = [UIImage imageNamed:@"mouse"];
+    UIImage *image2 = [UIImage imageNamed:@"clear"];
     NSArray *imageList = [NSArray arrayWithObjects:image1, image2, nil];
 
     // 画像の配列をアニメーションにセット
@@ -107,6 +121,7 @@
 //点滅状態のMEMEを発見したときに呼ばれる
 - (void) memePeripheralFound: (CBPeripheral *) peripheral withDeviceAddress:(NSString *)address
 {
+    
     //最初にperipheralsの中身が接続済みの端末かどうかのチェックをしているようだ。
     BOOL alreadyFound = NO;
     for (CBPeripheral *p in self.peripherals){
@@ -147,6 +162,12 @@
     
     //くるくる隠す
     [_indicator setHidden:YES];
+
+    //UIを消す
+    [self.connectButton setHidden: YES];
+    [self.memeSelectTableView setHidden:YES];
+
+    
     return;
 }
 
@@ -220,9 +241,12 @@
 
     [self cheakAlpha:[self.latestRealTimeData pitch]];
     [self faceChange:[self.latestRealTimeData blinkSpeed]];
-
+     
+     [self smileChange: [self.latestRealTimeData roll]];
     
-    //    NSLog(@"blinkSpeed / blinkStrength: %d / %d", [self.latestRealTimeData blinkSpeed] , [self.latestRealTimeData blinkStrength]);
+    
+    
+    NSLog(@"yaw / blinkStrength: %f / %d", [self.latestRealTimeData roll] , [self.latestRealTimeData blinkStrength]);
     
     /*
      {seqNo = 64; accZ = -15; accY = 4; accX = -1; yaw = 349.29; pitch = 16.9; roll = -1.59; blinkStrength = 0; blinkSpeed = 0; eyeMoveRight = 0; eyeMoveLeft = 0; eyeMoveDown = 0; eyeMoveUp = 0; powerLeft = 5; isWalking = 0; fitError = 0; }
@@ -253,14 +277,34 @@
 - (void)faceChange:(int)blink{
     NSLog(@"%d",blink);
 
+    
     if(blink == 0){
-        UIImage *img = [UIImage imageNamed:@"open"];
-        self.faceImage.image = img;
+        [self.eyeImage setHidden:YES];
     }else{
-        UIImage *img = [UIImage imageNamed:@"close"];
-        self.faceImage.image = img;
+        [self.eyeImage setHidden:NO];
     }
 }
+
+//顔画像の変更
+- (void)smileChange:(int)roll{
+    NSLog(@"%d",roll);
+    
+    
+    if(roll >= 10){
+        [self.smileImage setHidden: NO];
+        [self.angryImage setHidden: YES];
+        [self.faceImage setHidden: YES];
+    }else if(roll < -10){
+        [self.smileImage setHidden: YES];
+        [self.angryImage setHidden: NO];
+        [self.faceImage setHidden: YES];
+    }else{
+        [self.smileImage setHidden: YES];
+        [self.angryImage setHidden: YES];
+        [self.faceImage setHidden: NO];
+    }
+}
+
 
 //APPIDの認証認証
 - (void) memeAppAuthorized:(MEMEStatus)status
@@ -458,7 +502,6 @@
 - (void)showStatusLabel:(NSString*)message{
     [_statusText setText:message];
 }
-
 
 
 @end

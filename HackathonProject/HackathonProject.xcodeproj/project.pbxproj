@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0682173320DFDAD300465776 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0682173220DFDAD300465776 /* WebKit.framework */; };
 		06FF19F11EC84F44009B6712 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FF19F01EC84F44009B6712 /* main.m */; };
 		06FF19F41EC84F44009B6712 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FF19F31EC84F44009B6712 /* AppDelegate.m */; };
 		06FF19F71EC84F44009B6712 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FF19F61EC84F44009B6712 /* ViewController.m */; };
@@ -87,6 +88,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0682173220DFDAD300465776 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		06FF19EC1EC84F44009B6712 /* HackathonProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackathonProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06FF19F01EC84F44009B6712 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06FF19F21EC84F44009B6712 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0682173320DFDAD300465776 /* WebKit.framework in Frameworks */,
 				9A749D4B1EC97777001A6BAD /* WatchConnectivity.framework in Frameworks */,
 				9A749D4C1EC97777001A6BAD /* WatchKit.framework in Frameworks */,
 				06FF1A401EC8B5BF009B6712 /* AudioToolbox.framework in Frameworks */,
@@ -231,6 +234,7 @@
 		06FF1A3C1EC8B5B4009B6712 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0682173220DFDAD300465776 /* WebKit.framework */,
 				9A749D491EC97777001A6BAD /* WatchConnectivity.framework */,
 				9A749D4A1EC97777001A6BAD /* WatchKit.framework */,
 				06FF1A3F1EC8B5BF009B6712 /* AudioToolbox.framework */,
@@ -607,6 +611,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HackathonProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.udonko.HackathonProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -624,6 +629,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HackathonProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.udonko.HackathonProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";

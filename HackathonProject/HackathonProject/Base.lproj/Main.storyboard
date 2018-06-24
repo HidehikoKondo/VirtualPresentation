@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,22 +18,42 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shibuya" translatesAutoresizingMaskIntoConstraints="NO" id="x5H-77-gkn">
-                                <rect key="frame" x="99" y="-155" width="375" height="829"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Na2-C9-j0h">
-                                <rect key="frame" x="59" y="28" width="22" height="22"/>
+                                <rect key="frame" x="635" y="8" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="JinsMemeScanButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Pq-Kd-RdV"/>
                                 </connections>
                             </button>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-b1-odE">
+                                <rect key="frame" x="507" y="101" width="140" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="base" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-tZ-KM4">
+                                <rect key="frame" x="525" y="240" width="105" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mouse" translatesAutoresizingMaskIntoConstraints="NO" id="wHP-RX-rPJ">
+                                <rect key="frame" x="565" y="313" width="19" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="VDq-xg-qg4">
+                                <rect key="frame" x="525" y="232" width="110" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="69E-NQ-xPy">
+                                <rect key="frame" x="604" y="73" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZTi-z7-GfW">
-                                <rect key="frame" x="98" y="20" width="261" height="73"/>
+                                <rect key="frame" x="507" y="38" width="140" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -41,51 +61,55 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="amE-v4-l9O"/>
                                 </connections>
                             </tableView>
-                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-b1-odE">
-                                <rect key="frame" x="16" y="168" width="260" height="128"/>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSM-8L-O2u">
+                                <rect key="frame" x="20" y="8" width="479" height="359"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="open" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-tZ-KM4">
-                                <rect key="frame" x="27" y="347" width="320" height="320"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mouseclose" translatesAutoresizingMaskIntoConstraints="NO" id="wHP-RX-rPJ">
-                                <rect key="frame" x="182" y="543" width="31" height="13"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="H42-9K-3ef"/>
+                                </connections>
+                            </webView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="ghs-bk-OXu">
+                                <rect key="frame" x="556" y="288" width="37" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cheak" translatesAutoresizingMaskIntoConstraints="NO" id="VDq-xg-qg4">
-                                <rect key="frame" x="136" y="524" width="116" height="20"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="xY2-pR-bbc">
+                                <rect key="frame" x="530" y="242" width="89" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="69E-NQ-xPy">
-                                <rect key="frame" x="59" y="65" width="20" height="20"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry" translatesAutoresizingMaskIntoConstraints="NO" id="xeM-Oj-dBk">
+                                <rect key="frame" x="527" y="242" width="94" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="angryImage" destination="xeM-Oj-dBk" id="XHO-FI-hNw"/>
                         <outlet property="cheekImage" destination="VDq-xg-qg4" id="WIT-HI-3a5"/>
+                        <outlet property="connectButton" destination="Na2-C9-j0h" id="i6W-fb-Isx"/>
+                        <outlet property="eyeImage" destination="ghs-bk-OXu" id="SIX-DU-V10"/>
                         <outlet property="faceImage" destination="Nw5-tZ-KM4" id="4mt-fe-bec"/>
                         <outlet property="indicator" destination="69E-NQ-xPy" id="ecg-Oq-lQV"/>
                         <outlet property="memeSelectTableView" destination="ZTi-z7-GfW" id="PJa-hv-S3Y"/>
                         <outlet property="mouseImage" destination="wHP-RX-rPJ" id="QIi-uf-Arv"/>
+                        <outlet property="smileImage" destination="xY2-pR-bbc" id="dJW-vP-WPm"/>
                         <outlet property="statusText" destination="Yp4-b1-odE" id="WyW-2o-Ttv"/>
+                        <outlet property="webView" destination="qSM-8L-O2u" id="Yq6-AY-nbG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="138.0809595202399"/>
+            <point key="canvasLocation" x="419.64017991004499" y="544.79999999999995"/>
         </scene>
     </scenes>
     <resources>
-        <image name="cheak" width="171" height="24"/>
-        <image name="mouseclose" width="55" height="23"/>
-        <image name="open" width="512" height="512"/>
-        <image name="shibuya" width="325" height="190"/>
+        <image name="angry" width="93" height="125"/>
+        <image name="base" width="105" height="135"/>
+        <image name="eye" width="42" height="14"/>
+        <image name="mouse" width="19" height="11"/>
+        <image name="smile" width="93" height="125"/>
+        <image name="star" width="106" height="138"/>
     </resources>
 </document>
