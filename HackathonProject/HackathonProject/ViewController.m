@@ -53,6 +53,9 @@
     //リクエストを作成
     NSURLRequest *myRequest = [NSURLRequest requestWithURL:myURL];
     //リクエストされた URLを読み込み
+    
+    self.webView.scrollView.pagingEnabled = YES;
+    
     [self.webView loadRequest:myRequest];
     
     
